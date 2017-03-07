@@ -27,14 +27,17 @@ I want to know how many days I have for selling an item
 As an host,
 So to know the valuability of a product,
 I want to give a quality value to each item
-CRITERIA:
-Quality value cannot be negative
-Quality value cannot be more than 50
 
 As an host,
 So to keep my inventory up to date,
-I want to lower the quality and selling days values at the end of each day.
+I want to lower the selling days values at the end of each day.
+
+As an host,
+So to keep my inventory up to date,
+I want to lower the quality values at the end of each day.
 CRITERIA:
+Quality value cannot be negative
+Quality value cannot be more than 50
 Quality value degrades twice as faster after sell date
 
 As an host,
