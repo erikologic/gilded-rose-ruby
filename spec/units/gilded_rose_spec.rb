@@ -70,6 +70,14 @@ describe GildedRose do
           expect(item.quality).to eq(quality + 5 * 3)
         end
       end
+      context "when sell_in <= 0" do
+        it 'quality is 0' do
+          item.name = 'Backstage passes to a TAFKAL80ETC concert'
+          item.sell_in = 0
+          gilded_rose.update_quality
+          expect(item.quality).to eq(0)
+        end
+      end
     end
   end
 
