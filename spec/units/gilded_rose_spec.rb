@@ -17,6 +17,13 @@ describe GildedRose do
       gilded_rose.update_quality
       expect(item_foo).to have_received(:quality=).with(4)
     end
+    context "when quality value is 0" do
+      it "cannot become negative" do
+        item_foo.quality = 0
+        gilded_rose.update_quality
+        expect(item_foo).to have_received(:quality=).with(0)
+      end
+    end
   end
 
 end
