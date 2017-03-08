@@ -51,6 +51,17 @@ describe GildedRose do
         expect(item.sell_in).to eq(5)
       end
     end
+    context "when item.name == 'Backstage passes to a TAFKAL80ETC concert'" do
+      context "when 5 < sell_in <= 10" do
+        it 'quality increases by 2' do
+          item.name = 'Backstage passes to a TAFKAL80ETC concert'
+          item.sell_in = 10
+          quality = item.quality
+          5.times { gilded_rose.update_quality }
+          expect(item.quality).to eq(quality + 5 * 2)
+        end
+      end
+    end
   end
 
 end
