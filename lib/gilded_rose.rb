@@ -7,9 +7,14 @@ class GildedRose
   def update_quality()
     @items.each do |item|
 
-      delta = item.sell_in > 0 ? 1 : 2
-      item.quality -= delta
-      item.quality = 0 if item.quality < 0
+      if item.name == "Aged Brie"
+        item.quality += 1
+        item.quality = 50 if item.quality > 50
+      else
+        delta = item.sell_in > 0 ? 1 : 2
+        item.quality -= delta
+        item.quality = 0 if item.quality < 0
+      end
 
       item.sell_in -= 1
       # if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"

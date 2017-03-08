@@ -21,7 +21,7 @@ describe GildedRose do
         expect(item.quality).to eq(0)
       end
     end
-    xcontext "when quality value is 50" do
+    context "when quality value is 50" do
       it "cannot go above 50" do
         item.name = 'Aged Brie'
         item.quality = 50
@@ -36,7 +36,7 @@ describe GildedRose do
         expect(item.quality).to eq(3)
       end
     end
-    xcontext "when item.name == 'Aged Brie'" do
+    context "when item.name == 'Aged Brie'" do
       it 'increases in quality' do
         item.name = 'Aged Brie'
         gilded_rose.update_quality
