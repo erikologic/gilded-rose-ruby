@@ -5,16 +5,16 @@ describe GildedRose do
   subject (:gilded_rose) { described_class.new( [item] ) }
 
   describe "#update_quality" do
-    xit "lower the sell_in value" do
+    it "lower the sell_in value" do
       gilded_rose.update_quality
       expect(item.sell_in).to eq(4)
     end
 
-    xit "lower the quality value" do
+    it "lower the quality value" do
       gilded_rose.update_quality
       expect(item.quality).to eq(4)
     end
-    xcontext "when quality value is 0" do
+    context "when quality value is 0" do
       it "cannot become negative" do
         item.quality = 0
         gilded_rose.update_quality
@@ -29,7 +29,7 @@ describe GildedRose do
         expect(item.quality).to eq(50)
       end
     end
-    xcontext "when item.sell_in == 0" do
+    context "when item.sell_in == 0" do
       it "degrades twice as faster" do
         item.sell_in = 0
         gilded_rose.update_quality
