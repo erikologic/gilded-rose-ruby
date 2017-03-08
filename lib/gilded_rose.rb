@@ -26,6 +26,9 @@ class GildedRose
           end
 
         delta_sell_in = -1
+      when 'Conjured'
+        delta_quality = -2
+        delta_sell_in = -2
       else
         delta_quality = item.sell_in > 0 ? -1 : -2
         delta_sell_in = -1

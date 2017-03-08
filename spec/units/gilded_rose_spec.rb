@@ -87,7 +87,7 @@ describe GildedRose do
         end
       end
     end
-    xcontext "when item.name == 'Conjured'" do
+    context "when item.name == 'Conjured'" do
       it 'degrades quality and sell_in twice as faster' do
         item.name = 'Conjured'
         gilded_rose.update_quality
