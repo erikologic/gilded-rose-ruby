@@ -43,7 +43,7 @@ describe GildedRose do
         expect(item.quality).to eq(6)
       end
     end
-    xcontext "when item.name == 'Sulfuras, Hand of Ragnaros'" do
+    context "when item.name == 'Sulfuras, Hand of Ragnaros'" do
       it 'do not change quality' do
         item.name = 'Sulfuras, Hand of Ragnaros'
         gilded_rose.update_quality
