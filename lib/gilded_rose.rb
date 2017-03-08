@@ -13,6 +13,21 @@ class GildedRose
         item.sell_in -= 1
       elsif item.name == 'Sulfuras, Hand of Ragnaros'
         # Nothing!
+      elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
+        delta = case
+          when item.sell_in == 0
+            -item.quality
+          when item.sell_in <= 5
+            3
+          when item.sell_in <= 10
+            2
+          else
+            1
+          end
+
+        item.quality += delta
+        item.quality = 50 if item.quality > 50
+        item.sell_in -= 1
       else
         delta = item.sell_in > 0 ? 1 : 2
         item.quality -= delta
