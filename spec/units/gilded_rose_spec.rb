@@ -79,6 +79,14 @@ describe GildedRose do
         end
       end
     end
+    context "when item.name == 'Conjured'" do
+      it 'degrades quality and sell_in twice as faster' do
+        item.name = 'Conjured'
+        gilded_rose.update_quality
+        expect(item.quality).to eq(3)
+        expect(item.sell_in).to eq(3)
+      end
+    end
   end
 
 end
