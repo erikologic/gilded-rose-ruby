@@ -28,11 +28,18 @@ describe GildedRose do
         expect(item.quality).to eq(50)
       end
     end
-    context "when sell date equal 0" do
+    context "when item.sell_in == 0" do
       it "degrades twice as faster" do
         item.sell_in = 0
         gilded_rose.update_quality
         expect(item.quality).to eq(3)
+      end
+    end
+    context "when item.name == 'Aged Brie'" do
+      it 'increases in quality' do
+        item.name = 'Aged Brie'
+        gilded_rose.update_quality
+        expect(item.quality).to eq(6)
       end
     end
   end
