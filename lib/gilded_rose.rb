@@ -8,13 +8,13 @@ class GildedRose
     @items.each do |item|
       case item.name
       when "Aged Brie"
-        item.quality += 1
-        item.quality = 50 if item.quality > 50
+        delta_quality = 1
+
         item.sell_in -= 1
       when 'Sulfuras, Hand of Ragnaros'
-        # Nothing!
+        delta_quality = 0
       when 'Backstage passes to a TAFKAL80ETC concert'
-        delta = case
+        delta_quality = case
           when item.sell_in == 0
             -item.quality
           when item.sell_in <= 5
@@ -25,15 +25,15 @@ class GildedRose
             1
           end
 
-        item.quality += delta
-        item.quality = 50 if item.quality > 50
         item.sell_in -= 1
       else
-        delta = item.sell_in > 0 ? 1 : 2
-        item.quality -= delta
-        item.quality = 0 if item.quality < 0
+        delta_quality = item.sell_in > 0 ? -1 : -2
         item.sell_in -= 1
       end
+
+      item.quality += delta_quality
+      item.quality = 0 if item.quality < 0
+      item.quality = 50 if item.quality > 50
 
     end
   end
