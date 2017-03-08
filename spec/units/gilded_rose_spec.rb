@@ -12,6 +12,11 @@ describe GildedRose do
       gilded_rose.update_quality
       expect(item_foo).to have_received(:sell_in=).with(4)
     end
+
+    it "lower the quality value" do
+      gilded_rose.update_quality
+      expect(item_foo).to have_received(:quality=).with(4)
+    end
   end
 
 end
