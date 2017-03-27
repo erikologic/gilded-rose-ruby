@@ -51,7 +51,7 @@ CRITERIA:
 
 ## Getting started
 
-`git clone ...`  
+`git clone git@github.com:mrenrich84/gilded-rose-ruby.git`  
 
 ## Usage
 `irb`  
